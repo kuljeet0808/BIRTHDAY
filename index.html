@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Himali ❤️</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:Arial, sans-serif;
+    background:#160817;
+    color:white;
+    overflow-x:hidden;
+}
+/* PAGE */
+.page{
+    display:none;
+    min-height:100vh;
+    width:100%;
+    padding:70px 20px 40px;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+.page.active{
+    display:flex;
+    animation:fade .7s ease;
+}
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+.container{
+    width:100%;
+    max-width:650px;
+    position:relative;
+    z-index:5;
+}
+/* PAGE NUMBER */
+.page-number{
+    position:absolute;
+    top:20px;
+    right:20px;
+    padding:7px 14px;
+    border-radius:20px;
+    background:rgba(255,255,255,.12);
+    font-size:13px;
+}
+/* TEXT */
+h1{
+    font-size:clamp(42px,12vw,75px);
+    margin-bottom:20px;
+}
+h2{
+    font-size:clamp(28px,8vw,48px);
+    margin-bottom:25px;
+}
+p{
+    font-size:16px;
+    line-height:1.9;
+}
+.script{
+    font-family:cursive;
+    font-size:clamp(45px,12vw,80px);
+    color:#ff9bd2;
+}
+.gradient{
+    background:linear-gradient(
+        90deg,
+        #ff8fc8,
+        #ffffff,
+        #c9a4ff
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+}
+/* CARD */
+.card{
+    padding:28px;
+    border-radius:28px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+/* BUTTON */
+button{
+    border:0;
+    padding:15px 27px;
+    margin:10px;
+    border-radius:50px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    background:linear-gradient(
+        135deg,
+        #ffffff,
+        #ffd4ea
+    );
+    color:#8b245f;
+    transition:.3s;
+    box-shadow:0 10px 30px rgba(255,100,180,.3);
+}
+button:hover{
+    transform:scale(1.06);
+}
+button:active{
+    transform:scale(.94);
+}
+.back{
+    background:rgba(255,255,255,.1);
+    color:white;
+    border:1px solid rgba(255,255,255,.2);
+}
+/* FLOATING HEARTS */
+.heart{
+    position:fixed;
+    bottom:-40px;
+    pointer-events:none;
+    z-index:100;
+    animation:rise linear forwards;
+}
+@keyframes rise{
+    from{
+        transform:translateY(0) rotate(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+/* PAGE 1 */
+#page1{
+    background:
+    radial-gradient(
+        circle at center,
+        #541d48,
+        #160817 70%
+    );
+}
+.balloon{
+    position:absolute;
+    bottom:-100px;
+    font-size:55px;
+    animation:balloon 8s linear infinite;
+}
+.b1{left:10%;}
+.b2{left:35%;animation-delay:2s;}
+.b3{left:65%;animation-delay:4s;}
+.b4{left:85%;animation-delay:1s;}
+@keyframes balloon{
+    to{
+        transform:translateY(-120vh);
+    }
+}
+/* GAME */
+.game{
+    width:100%;
+    height:350px;
+    border-radius:25px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.15);
+    position:relative;
+    overflow:hidden;
+    margin:25px 0;
+}
+.target{
+    position:absolute;
+    font-size:42px;
+    cursor:pointer;
+    user-select:none;
+    animation:pulse .7s infinite alternate;
+}
+@keyframes pulse{
+    from{transform:scale(.9);}
+    to{transform:scale(1.15);}
+}
+.score{
+    color:#ffafd7;
+    font-size:20px;
+    margin:15px;
+}
+.hidden{
+    display:none;
+}
+/* CHOICES */
+.choice{
+    display:block;
+    width:90%;
+    max-width:400px;
+    margin:12px auto;
+}
+#result{
+    min-height:70px;
+    margin:20px 0;
+    color:#ffafd7;
+    font-weight:bold;
+}
+/* PAGE 5 */
+#page5{
+    background:
+    radial-gradient(
+        circle at center,
+        #29255c,
+        #090913 75%
+    );
+}
+.moon{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#fff4ce;
+    margin:0 auto 30px;
+    box-shadow:0 0 50px #fff4ce;
+}
+/* CAKE */
+.cake{
+    width:220px;
+    height:180px;
+    position:relative;
+    margin:30px auto;
+}
+.cake-body{
+    position:absolute;
+    bottom:0;
+    left:10px;
+    width:200px;
+    height:100px;
+    border-radius:15px 15px 25px 25px;
+    background:linear-gradient(
+        #ff9ccb,
+        #bd4388
+    );
+}
+.cake-top{
+    position:absolute;
+    bottom:80px;
+    left:15px;
+    width:190px;
+    height:45px;
+    border-radius:50%;
+    background:#ffd0e7;
+}
+.candle{
+    position:absolute;
+    bottom:115px;
+    width:18px;
+    height:55px;
+    background:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+.candle:nth-child(3){
+    left:55px;
+}
+.candle:nth-child(4){
+    left:101px;
+}
+.candle:nth-child(5){
+    left:147px;
+}
+.flame{
+    position:absolute;
+    width:18px;
+    height:25px;
+    background:orange;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(-45deg);
+    top:-25px;
+    animation:flame .4s infinite alternate;
+}
+@keyframes flame{
+    from{transform:rotate(-45deg) scale(.9);}
+    to{transform:rotate(-45deg) scale(1.1);}
+}
+/* CONFETTI */
+.confetti{
+    position:fixed;
+    width:9px;
+    height:14px;
+    top:-20px;
+    z-index:200;
+    animation:fall 4s linear forwards;
+}
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+/* MOBILE */
+@media(max-width:500px){
+    .page{
+        padding:65px 15px 30px;
+    }
+    .card{
+        padding:22px 17px;
+    }
+    p{
+        font-size:14px;
+    }
+    .game{
+        height:320px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+<div class="page-number">1 / 6</div>
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div>
+<div class="balloon b4">🎈</div>
+<div class="container">
+<p>✨ A LITTLE SURPRISE FOR YOU ✨</p>
+<div class="script">
+Hey Himali...
+</div>
+<h1 class="gradient">
+👀❤️
+</h1>
+<p>
+Can I steal a few minutes of your time? 😌
+</p>
+<br>
+<p>
+Because today is not an ordinary day...
+</p>
+<br>
+<h2>
+It's YOUR Birthday! 🎂🎉
+</h2>
+<div class="script">
+Happy Birthday Himali ❤️
+</div>
+<br>
+<button onclick="goTo(2)">
+Start The Surprise 🎁
+</button>
+</div>
+</section>
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+<div class="page-number">2 / 6</div>
+<div class="container">
+<h2>
+A Little Something For You ❤️
+</h2>
+<div class="card">
+<p>
+Some people enter our lives quietly...
+<br><br>
+and somehow become a beautiful part
+of our everyday life.
+<br><br>
+They become part of random conversations,
+stupid jokes,
+unexpected memories,
+and moments we don't even realize
+we'll remember later.
+<br><br>
+And today, on your birthday,
+I just want to wish you something simple...
+<br><br>
+I hope you always have a reason to smile.
+<br><br>
+I hope your dreams slowly become reality.
+<br><br>
+I hope difficult days become easier.
+<br><br>
+And I hope you never forget
+how genuinely special you are. 🌸
+<br><br>
+Happy Birthday, Himali. ❤️
+</p>
+</div>
+<br>
+<button class="back" onclick="goTo(1)">
+← Back
+</button>
+<button onclick="goTo(3)">
+Enough Emotions 😭😂
+</button>
+</div>
+</section>
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+<div class="page-number">3 / 6</div>
+<div class="container">
+<h2>
+Game Time 😈❤️
+</h2>
+<p>
+Catch 7 hearts as quickly as possible!
+</p>
+<div class="score">
+Score: <span id="score">0</span> / 7
+</div>
+<div class="game" id="game">
+<div
+class="target"
+id="target"
+onclick="catchHeart()">
+❤️
+</div>
+</div>
+<div id="gameWin" class="hidden">
+<h2>
+YOU DID IT! 🎉❤️
+</h2>
+<p>
+Okayyy Himali...
+you're actually good at this 😂
+</p>
+<button onclick="goTo(4)">
+Next Challenge 😈
+</button>
+</div>
+<button class="back" onclick="goTo(2)">
+← Back
+</button>
+</div>
+</section>
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+<div class="page-number">4 / 6</div>
+<div class="container">
+<h2>
+Very Important Question 👀
+</h2>
+<div class="card">
+<p>
+Which one are you REALLY? 😌
+</p>
+<br>
+<button class="choice"
+onclick="choose('cute')">
+Cute 😇
+</button>
+<button class="choice"
+onclick="choose('crazy')">
+Crazy 😂
+</button>
+<button class="choice"
+onclick="choose('drama')">
+Drama Queen 👑
+</button>
+<button class="choice"
+onclick="choose('all')">
+All Of The Above 😌
+</button>
+<div id="result"></div>
+<button
+id="continue"
+class="hidden"
+onclick="goTo(5)">
+I'm Ready ❤️
+</button>
+</div>
+<button class="back" onclick="goTo(3)">
+← Back
+</button>
+</div>
+</section>
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+<div class="page-number">5 / 6</div>
+<div class="container">
+<div class="moon"></div>
+<h2>
+Before The Final Surprise... 🌙
+</h2>
+<div class="card">
+<p>
+I don't know what the future will look like.
+<br><br>
+Things change.
+People change.
+Life takes everyone in different directions.
+<br><br>
+But there are some people who leave behind
+memories that remain special no matter
+how much time passes.
+<br><br>
+And I hope when you look back at this
+little birthday surprise,
+you don't just remember the words...
+<br><br>
+I hope you remember the feeling.
+<br><br>
+The feeling that someone genuinely
+wanted you to be happy.
+<br><br>
+Not only today.
+<br><br>
+But always. ❤️
+<br><br>
+So keep smiling.
+<br>
+Keep being crazy.
+<br>
+Keep making ordinary moments memorable.
+<br><br>
+And never forget...
+<br><br>
+<b>
+You deserve good things. 🌷
+</b>
+</p>
+</div>
+<button class="back" onclick="goTo(4)">
+← Back
+</button>
+<button onclick="goTo(6)">
+One Last Surprise 🎁
+</button>
+</div>
+</section>
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+<div class="page-number">6 / 6</div>
+<div class="container">
+<p>
+✨ THE FINAL SURPRISE ✨
+</p>
+<h1 class="gradient">
+HAPPY BIRTHDAY
+</h1>
+<div class="script">
+Himali ❤️
+</div>
+<div class="cake">
+<div class="cake-body"></div>
+<div class="cake-top"></div>
+<div class="candle">
+<div class="flame"></div>
+</div>
+<div class="candle">
+<div class="flame"></div>
+</div>
+<div class="candle">
+<div class="flame"></div>
+</div>
+</div>
+<p>
+🎂 Tap the candles and make a wish 🎂
+</p>
+<div id="finalMessage" class="card hidden">
+<h2>
+✨ Wish Sent To The Universe ✨
+</h2>
+<p>
+May this year bring you more smiles than tears,
+more beautiful memories than regrets,
+and more happiness than you expect.
+<br><br>
+May you achieve the things
+you secretly wish for.
+<br><br>
+May you always have reasons to smile.
+<br><br>
+And most importantly...
+<br><br>
+<b>
+Never stop being YOU. ❤️
+</b>
+<br><br>
+Happy Birthday once again, Himali! 🎂❤️
+<br><br>
+Keep smiling.
+Keep shining.
+Keep being the amazing person you are. ✨
+</p>
+</div>
+<button id="wishButton"
+onclick="makeWish()">
+Make My Birthday Wish ✨
+</button>
+<br>
+<button class="back" onclick="goTo(5)">
+← Back
+</button>
+<br>
+<button onclick="restart()">
+Replay The Surprise 🔄
+</button>
+</div>
+</section>
+<script>
+/* ==========================
+NAVIGATION
+========================== */
+function goTo(page){
+document.querySelectorAll(".page")
+.forEach(p => p.classList.remove("active"));
+document.getElementById("page" + page)
+.classList.add("active");
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+createHearts(6);
+}
+/* ==========================
+HEARTS
+========================== */
+function createHearts(amount){
+for(let i=0;i<amount;i++){
+let heart=document.createElement("div");
+heart.className="heart";
+let symbols=[
+"❤️",
+"💗",
+"💕",
+"💖",
+"✨",
+"🌸"
+];
+heart.innerHTML=
+symbols[Math.floor(Math.random()*symbols.length)];
+heart.style.left=
+Math.random()*100+"vw";
+heart.style.fontSize=
+(18+Math.random()*25)+"px";
+heart.style.animationDuration=
+(4+Math.random()*4)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>{
+heart.remove();
+},8000);
+}
+}
+setInterval(()=>{
+createHearts(1);
+},1500);
+/* ==========================
+GAME
+========================== */
+let score=0;
+function catchHeart(){
+if(score>=7)return;
+score++;
+document.getElementById("score")
+.innerText=score;
+let target=
+document.getElementById("target");
+let game=
+document.getElementById("game");
+let maxX=
+game.clientWidth-60;
+let maxY=
+game.clientHeight-60;
+target.style.left=
+Math.random()*maxX+"px";
+target.style.top=
+Math.random()*maxY+"px";
+createHearts(3);
+if(score===7){
+target.style.display="none";
+document.getElementById("gameWin")
+.classList.remove("hidden");
+createConfetti(80);
+}
+}
+/* ==========================
+CHOICE GAME
+========================== */
+function choose(type){
+let text="";
+if(type==="cute"){
+text=
+"Cute? Obviously 😌❤️ But don't become too proud now 😂";
+}
+if(type==="crazy"){
+text=
+"Finally! Some honesty! 😂❤️";
+}
+if(type==="drama"){
+text=
+"We already knew this one... no explanation required 👑😂";
+}
+if(type==="all"){
+text=
+"CORRECT ANSWER! 😂❤️ You know yourself very well.";
+}
+document.getElementById("result")
+.innerHTML=text;
+document.getElementById("continue")
+.classList.remove("hidden");
+createHearts(8);
+}
+/* ==========================
+CONFETTI
+========================== */
+function createConfetti(amount){
+for(let i=0;i<amount;i++){
+let c=document.createElement("div");
+c.className="confetti";
+c.style.left=
+Math.random()*100+"vw";
+c.style.background=
+`hsl(${Math.random()*360},90%,70%)`;
+c.style.animationDelay=
+Math.random()*2+"s";
+document.body.appendChild(c);
+setTimeout(()=>{
+c.remove();
+},6000);
+}
+}
+/* ==========================
+FINAL WISH
+========================== */
+function makeWish(){
+document.querySelectorAll(".flame")
+.forEach(f=>{
+f.style.display="none";
+});
+document.getElementById("finalMessage")
+.classList.remove("hidden");
+document.getElementById("wishButton")
+.style.display="none";
+createConfetti(150);
+createHearts(30);
+}
+/* ==========================
+RESTART
+========================== */
+function restart(){
+score=0;
+document.getElementById("score")
+.innerText="0";
+document.getElementById("target")
+.style.display="block";
+document.getElementById("gameWin")
+.classList.add("hidden");
+document.getElementById("finalMessage")
+.classList.add("hidden");
+document.getElementById("wishButton")
+.style.display="inline-block";
+document.querySelectorAll(".flame")
+.forEach(f=>{
+f.style.display="block";
+});
+document.getElementById("result")
+.innerHTML="";
+document.getElementById("continue")
+.classList.add("hidden");
+goTo(1);
+createConfetti(40);
+}
+/* START */
+window.onload=function(){
+createHearts(15);
+};
+</script>
+</body>
+</html>
